@@ -2,7 +2,7 @@ import { ExternalLinkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 
-// Speaker data from TallinnJS archive
+// Speaker data from TallinnJS archive (verified roles)
 const speakers = [
   // TallinnJS #10 - July 2024
   {
@@ -53,14 +53,23 @@ const speakers = [
   },
   {
     name: "Kateryna Porshnieva",
-    company: "Veriff",
-    role: "Head of Developer Relations",
-    talk: "Building accessible forms",
+    company: "",
+    role: "Software Engineer",
+    talk: "Practical tips for building accessible forms",
     event: "TallinnJS #9",
     date: "April 2023",
     image: "https://archive.tallinnjs.org/tjs9/images/katya.jpg",
   },
   // TallinnJS #8 - December 2022
+  {
+    name: "Kateryna Porshnieva",
+    company: "Veriff",
+    role: "Head of Developer Relations",
+    talk: "Alice's Adventures in Memoryland",
+    event: "TallinnJS #8",
+    date: "December 2022",
+    image: "https://archive.tallinnjs.org/tjs8/images/katerya.jpg",
+  },
   {
     name: "Ilia Chernetskii",
     company: "Evolution",
@@ -91,7 +100,7 @@ const speakers = [
   },
 ];
 
-// Company logos (using placeholder for companies without public logos)
+// Company logos
 const companyLogos: Record<string, string> = {
   "Dropbox": "https://logo.clearbit.com/dropbox.com",
   "Craft Docs": "https://logo.clearbit.com/craft.do",
@@ -131,36 +140,37 @@ const SpeakersPage = () => {
       {/* Speakers Grid */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {speakers.map((speaker, index) => (
               <div
                 key={index}
-                className="group p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-yellow-400/30 transition-colors duration-300"
+                className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-yellow-400/30 transition-colors duration-300"
               >
-                <div className="flex items-start gap-4">
-                  {/* Speaker Photo */}
-                  <div className="relative flex-shrink-0">
+                {/* Speaker Photo - Centered and larger */}
+                <div className="flex flex-col items-center text-center mb-6">
+                  <div className="relative mb-4">
+                    <div className="absolute -inset-2 bg-yellow-400/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                     <img
                       src={speaker.image}
                       alt={speaker.name}
-                      className="w-20 h-20 rounded-full object-cover ring-2 ring-yellow-400/20 group-hover:ring-yellow-400/40 transition-all"
+                      className="relative w-28 h-28 rounded-full object-cover ring-4 ring-yellow-400/20 group-hover:ring-yellow-400/40 transition-all"
                       onError={(e) => {
-                        (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(speaker.name)}&background=ffe45e&color=000&size=80`;
+                        (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(speaker.name)}&background=ffe45e&color=000&size=112`;
                       }}
                     />
                   </div>
 
-                  {/* Speaker Info */}
-                  <div className="flex-grow min-w-0">
-                    <h3 className="font-display text-lg font-black mb-1 truncate">{speaker.name}</h3>
+                  <h3 className="font-display text-xl font-black mb-2">{speaker.name}</h3>
+                  <p className="text-white/50 text-sm">{speaker.role}</p>
 
-                    {/* Company with logo */}
-                    <div className="flex items-center gap-2 mb-2">
+                  {/* Company with logo */}
+                  {speaker.company && (
+                    <div className="flex items-center gap-2 mt-3 px-4 py-2 bg-white/5 rounded-full">
                       {companyLogos[speaker.company] && (
                         <img
                           src={companyLogos[speaker.company]}
                           alt={speaker.company}
-                          className="w-4 h-4 rounded"
+                          className="w-5 h-5 rounded"
                           onError={(e) => {
                             (e.target as HTMLImageElement).style.display = 'none';
                           }}
@@ -168,16 +178,14 @@ const SpeakersPage = () => {
                       )}
                       <span className="text-yellow-400 text-sm font-medium">{speaker.company}</span>
                     </div>
-
-                    <p className="text-white/40 text-xs mb-3">{speaker.role}</p>
-                  </div>
+                  )}
                 </div>
 
                 {/* Talk Info */}
-                <div className="mt-4 pt-4 border-t border-white/10">
-                  <p className="text-white/70 text-sm font-medium mb-2">"{speaker.talk}"</p>
-                  <div className="flex items-center justify-between text-xs text-white/40">
-                    <span>{speaker.event}</span>
+                <div className="pt-4 border-t border-white/10">
+                  <p className="text-white/70 text-sm font-medium mb-3 text-center">"{speaker.talk}"</p>
+                  <div className="flex items-center justify-center gap-3 text-xs text-white/40">
+                    <span className="px-2 py-1 bg-white/5 rounded">{speaker.event}</span>
                     <span>{speaker.date}</span>
                   </div>
                 </div>
