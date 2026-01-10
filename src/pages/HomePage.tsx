@@ -93,13 +93,13 @@ const HomePage = () => {
             <div className="relative">
               <div className="relative">
                 {/* Glow behind image */}
-                <div className="absolute -inset-4 bg-yellow-400/20 rounded-3xl blur-2xl" />
+                <div className="absolute -inset-4 bg-yellow-400/20 blur-2xl" />
 
                 {/* Main image */}
                 <img
                   src="/images/tallinnjs.jpeg"
                   alt="TallinnJS Community"
-                  className="relative w-full h-[400px] lg:h-[500px] object-cover rounded-3xl"
+                  className="relative w-full h-[400px] lg:h-[500px] object-cover"
                 />
               </div>
             </div>
