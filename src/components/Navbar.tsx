@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import MeetupLogo from "./MeetupLogo";
 
 const Navbar = () => {
   const location = useLocation();
@@ -51,8 +52,9 @@ const Navbar = () => {
               href="https://www.meetup.com/tallinn-js/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black hover:text-black font-semibold rounded-lg hover:bg-yellow-300 transition-colors"
             >
+              <MeetupLogo className="size-4" />
               Join Meetup
             </a>
           </div>
@@ -87,8 +89,9 @@ const Navbar = () => {
               href="https://www.meetup.com/tallinn-js/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-yellow-400 text-black font-semibold rounded-lg hover:bg-yellow-300 transition-colors text-center"
+              className="flex items-center justify-center gap-2 px-4 py-2 bg-yellow-400 text-black hover:text-black font-semibold rounded-lg hover:bg-yellow-300 transition-colors"
             >
+              <MeetupLogo className="size-4" />
               Join Meetup
             </a>
           </div>

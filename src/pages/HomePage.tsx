@@ -105,27 +105,33 @@ const HomePage = () => {
                 <p className="text-white/30 text-xs uppercase tracking-wider mb-4">
                   Speakers from
                 </p>
-                <div className="relative overflow-hidden" style={{ maxWidth: '400px' }}>
+                <div className="relative overflow-hidden" style={{ maxWidth: '400px', height: '40px' }}>
                   {/* Fade edges */}
-                  <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10" />
-                  <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10" />
+                  <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
+                  <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10 pointer-events-none" />
 
                   {/* Scrolling container */}
-                  <div className="flex animate-scroll" style={{ width: 'max-content' }}>
+                  <div
+                    className="flex flex-nowrap items-center animate-scroll"
+                    style={{
+                      width: 'fit-content',
+                      whiteSpace: 'nowrap'
+                    }}
+                  >
                     {[...companies, ...companies, ...companies].map((company, index) => (
                       <div
                         key={index}
-                        className="flex items-center justify-center px-6 flex-shrink-0"
+                        className="inline-flex items-center justify-center px-6 flex-shrink-0"
+                        style={{ height: '40px' }}
                       >
                         <img
                           src={`https://cdn.simpleicons.org/${company.icon}/ffffff`}
                           alt={company.name}
                           className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity"
                           onError={(e) => {
-                            // Fallback to text if icon fails
                             const parent = (e.target as HTMLImageElement).parentElement;
                             if (parent) {
-                              parent.innerHTML = `<span class="text-white/50 font-medium text-sm">${company.name}</span>`;
+                              parent.innerHTML = `<span class="text-white/50 font-medium text-sm whitespace-nowrap">${company.name}</span>`;
                             }
                           }}
                         />
