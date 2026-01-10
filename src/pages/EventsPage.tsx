@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLinkIcon, Calendar, Bell, Mic } from "lucide-react";
-import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const EventsPage = () => {
   return (
@@ -150,34 +150,7 @@ const EventsPage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 border-t border-white/10">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-              <img src="/images/logo.png" className="size-10" alt="TallinnJS" />
-              <span className="text-2xl font-black gradient-text">TALLINNJS</span>
-            </div>
-
-            <div className="flex gap-8">
-              <Link to="/" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Home
-              </Link>
-              <Link to="/about" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                About
-              </Link>
-              <a
-                href="https://www.meetup.com/tallinn-js/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/50 hover:text-yellow-400 transition-colors font-medium"
-              >
-                Meetup
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

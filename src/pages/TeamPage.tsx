@@ -1,13 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import { Linkedin, Github, Twitter, Globe, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Footer from "@/components/Footer";
 
 // Team member data
 const teamMembers = {
   "stefano-amorelli": {
     name: "Stefano Amorelli",
     role: "Lead Organizer",
-    image: "https://secure.meetupstatic.com/photos/member/c/2/5/e/highres_315289758.jpeg",
+    image: "https://secure.meetupstatic.com/photos/member/c/f/a/5/highres_314333157.jpeg",
     bio: "Software engineer passionate about JavaScript and building developer communities. Leading TallinnJS to connect and grow the JavaScript ecosystem in Estonia.",
     location: "Tallinn, Estonia",
     links: {
@@ -143,29 +144,7 @@ const TeamMemberDetail = ({ member }: { member: typeof teamMembers["stefano-amor
       </div>
     </section>
 
-    {/* Footer */}
-    <footer className="py-16 border-t border-white/10 mt-24">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-3">
-            <img src="/images/logo.png" className="size-10" alt="TallinnJS" />
-            <span className="text-2xl font-black gradient-text">TALLINNJS</span>
-          </div>
-
-          <div className="flex gap-8">
-            <Link to="/" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-              Home
-            </Link>
-            <Link to="/about" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-              About
-            </Link>
-            <Link to="/events" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-              Events
-            </Link>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <Footer />
   </div>
 );
 
@@ -296,32 +275,7 @@ const TeamPage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 border-t border-white/10">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-              <img src="/images/logo.png" className="size-10" alt="TallinnJS" />
-              <span className="text-2xl font-black gradient-text">TALLINNJS</span>
-            </div>
-
-            <div className="flex gap-8">
-              <Link to="/" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Home
-              </Link>
-              <Link to="/about" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                About
-              </Link>
-              <Link to="/events" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Events
-              </Link>
-              <Link to="/speakers" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Speakers
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

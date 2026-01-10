@@ -3,6 +3,7 @@ import { ExternalLinkIcon, ArrowRight, Code2, Users, Zap, Mic } from "lucide-rea
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
 import Particles from "@/components/Particles";
+import Footer from "@/components/Footer";
 
 const HomePage = () => {
   return (
@@ -12,15 +13,10 @@ const HomePage = () => {
         {/* Animated particles */}
         <Particles />
 
-        {/* Decorative geometric shapes */}
+        {/* Decorative glow */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Large yellow glow */}
           <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-yellow-500/15 rounded-full blur-[150px]" />
           <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-yellow-400/10 rounded-full blur-[120px]" />
-
-          {/* Decorative circles */}
-          <div className="absolute top-1/4 right-20 w-64 h-64 border border-yellow-400/10 rounded-full" />
-          <div className="absolute top-1/3 right-32 w-40 h-40 border border-yellow-400/5 rounded-full" />
         </div>
 
         <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
@@ -113,9 +109,6 @@ const HomePage = () => {
                   <div className="text-3xl font-black">50+</div>
                   <div className="text-sm font-medium uppercase">Events Hosted</div>
                 </div>
-
-                {/* Decorative element */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 border-4 border-yellow-400 rounded-full" />
               </div>
             </div>
           </div>
@@ -253,44 +246,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 border-t border-white/10">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-              <img src="/images/logo.png" className="size-10" alt="TallinnJS" />
-              <span className="text-2xl font-black gradient-text">TALLINNJS</span>
-            </div>
-
-            <div className="flex gap-8">
-              <Link to="/about" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                About
-              </Link>
-              <Link to="/team" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Team
-              </Link>
-              <Link to="/events" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Events
-              </Link>
-              <Link to="/speakers" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Speakers
-              </Link>
-              <a
-                href="https://www.meetup.com/tallinn-js/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/50 hover:text-yellow-400 transition-colors font-medium"
-              >
-                Meetup
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-white/10 text-center text-white/30 text-sm">
-            The JavaScript Community in Tallinn, Estonia
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

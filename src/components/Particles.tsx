@@ -29,16 +29,18 @@ const Particles = () => {
 
     const createParticles = () => {
       particles = [];
-      const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
+      // More particles
+      const particleCount = Math.floor((canvas.width * canvas.height) / 8000);
 
       for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 0.5,
-          speedX: (Math.random() - 0.5) * 0.3,
-          speedY: (Math.random() - 0.5) * 0.3,
-          opacity: Math.random() * 0.5 + 0.1,
+          // Larger, more blurred particles
+          size: Math.random() * 3 + 1,
+          speedX: (Math.random() - 0.5) * 0.2,
+          speedY: (Math.random() - 0.5) * 0.2,
+          opacity: Math.random() * 0.3 + 0.05,
         });
       }
     };
@@ -56,24 +58,31 @@ const Particles = () => {
         if (particle.y < 0) particle.y = canvas.height;
         if (particle.y > canvas.height) particle.y = 0;
 
+        // Draw blurred particle
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 228, 94, ${particle.opacity})`;
+        const gradient = ctx.createRadialGradient(
+          particle.x, particle.y, 0,
+          particle.x, particle.y, particle.size * 2
+        );
+        gradient.addColorStop(0, `rgba(255, 228, 94, ${particle.opacity})`);
+        gradient.addColorStop(1, `rgba(255, 228, 94, 0)`);
+        ctx.fillStyle = gradient;
+        ctx.arc(particle.x, particle.y, particle.size * 2, 0, Math.PI * 2);
         ctx.fill();
       });
 
-      // Draw connections between nearby particles
+      // Draw subtle connections between nearby particles
       particles.forEach((particle, i) => {
         particles.slice(i + 1).forEach((otherParticle) => {
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 120) {
+          if (distance < 100) {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(255, 228, 94, ${0.05 * (1 - distance / 120)})`;
+            ctx.strokeStyle = `rgba(255, 228, 94, ${0.03 * (1 - distance / 100)})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -102,7 +111,7 @@ const Particles = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-none"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.8 }}
     />
   );
 };

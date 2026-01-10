@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLinkIcon, Heart, Target, Users, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
+import Footer from "@/components/Footer";
 
 const AboutPage = () => {
   return (
@@ -165,32 +166,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 border-t border-white/10">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex items-center gap-3">
-              <img src="/images/logo.png" className="size-10" alt="TallinnJS" />
-              <span className="text-2xl font-black gradient-text">TALLINNJS</span>
-            </div>
-
-            <div className="flex gap-8">
-              <Link to="/" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Home
-              </Link>
-              <Link to="/team" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Team
-              </Link>
-              <Link to="/events" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Events
-              </Link>
-              <Link to="/speakers" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
-                Speakers
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
