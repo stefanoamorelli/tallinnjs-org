@@ -8,7 +8,6 @@ const AboutPage = () => {
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-yellow-500/20 rounded-full blur-[150px]" />
-        <div className="absolute inset-0 grid-pattern opacity-30" />
 
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl">
@@ -52,10 +51,10 @@ const AboutPage = () => {
             ].map((item, index) => (
               <div
                 key={index}
-                className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-yellow-400/50 transition-all duration-500 card-hover"
+                className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-yellow-400/30 transition-colors duration-300"
               >
-                <div className="inline-flex p-4 rounded-2xl bg-yellow-400/10 mb-6 group-hover:bg-yellow-400 transition-colors duration-300">
-                  <item.icon className="size-8 text-yellow-400 group-hover:text-black transition-colors duration-300" />
+                <div className="inline-flex p-4 rounded-2xl bg-yellow-400/10 mb-6 group-hover:bg-yellow-400/20 transition-colors duration-300">
+                  <item.icon className="size-8 text-yellow-400" />
                 </div>
                 <h3 className="font-display text-xl font-black mb-4 tracking-wide">{item.title}</h3>
                 <p className="text-white/50">{item.description}</p>
@@ -68,7 +67,6 @@ const AboutPage = () => {
       {/* Stats Banner */}
       <section className="py-16 relative overflow-hidden">
         <div className="absolute inset-0 bg-yellow-400" />
-        <div className="absolute inset-0 noise-overlay" />
 
         <div className="container mx-auto px-6 relative">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-5xl mx-auto text-center">
@@ -85,61 +83,6 @@ const AboutPage = () => {
                 </div>
                 <div className="text-black/60 font-medium tracking-wider text-xs">
                   {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Timeline */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-6xl font-black mb-4">
-              <span className="text-white">OUR</span>{" "}
-              <span className="gradient-text">JOURNEY</span>
-            </h2>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            {[
-              {
-                year: "2017",
-                title: "THE BEGINNING",
-                description: "TallinnJS was founded by a small group of passionate developers wanting to build a JS community in Estonia."
-              },
-              {
-                year: "2018",
-                title: "GROWING FAST",
-                description: "Reached 200+ members and started hosting monthly meetups with local and international speakers."
-              },
-              {
-                year: "2019",
-                title: "EXPANDING REACH",
-                description: "Launched workshops, hackathons, and special events. Community grew to 500+ members."
-              },
-              {
-                year: "2020",
-                title: "GOING VIRTUAL",
-                description: "Adapted to online events during the pandemic, reaching developers beyond Tallinn."
-              },
-              {
-                year: "NOW",
-                title: "STRONGER THAN EVER",
-                description: "Returned to in-person events with 1000+ members, continuing to grow the JS ecosystem in Estonia."
-              },
-            ].map((item, index) => (
-              <div key={index} className="flex gap-6 mb-12 last:mb-0 group">
-                <div className="flex flex-col items-center">
-                  <div className="w-16 h-16 bg-yellow-400 rounded-2xl flex items-center justify-center text-black font-black text-sm group-hover:scale-110 transition-transform">
-                    {item.year}
-                  </div>
-                  {index < 4 && <div className="w-0.5 h-full bg-yellow-400/30 mt-4" />}
-                </div>
-                <div className="pb-8 pt-2">
-                  <h3 className="font-display text-xl font-black mb-2 tracking-wide">{item.title}</h3>
-                  <p className="text-white/50">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -168,7 +111,7 @@ const AboutPage = () => {
             ].map((topic, index) => (
               <span
                 key={index}
-                className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white/70 hover:border-yellow-400/50 hover:text-yellow-400 transition-all cursor-default"
+                className="px-6 py-3 bg-white/5 border border-white/10 rounded-full text-white/70 hover:border-yellow-400/30 hover:text-yellow-400 transition-colors cursor-default"
               >
                 {topic}
               </span>
@@ -197,7 +140,7 @@ const AboutPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
                 asChild
-                className="px-10 py-6 text-lg btn-primary rounded-full glow-yellow"
+                className="px-10 py-6 text-lg bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-full transition-colors"
               >
                 <a
                   href="https://www.meetup.com/tallinn-js/"
@@ -211,7 +154,7 @@ const AboutPage = () => {
               <Button
                 asChild
                 variant="outline"
-                className="px-10 py-6 text-lg border-white/20 text-white hover:bg-white/10 rounded-full"
+                className="px-10 py-6 text-lg border-white/20 text-white hover:bg-white/5 hover:border-white/30 rounded-full transition-colors"
               >
                 <Link to="/events">
                   VIEW EVENTS
@@ -235,17 +178,15 @@ const AboutPage = () => {
               <Link to="/" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
                 Home
               </Link>
+              <Link to="/team" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
+                Team
+              </Link>
               <Link to="/events" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
                 Events
               </Link>
-              <a
-                href="https://www.meetup.com/tallinn-js/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white/50 hover:text-yellow-400 transition-colors font-medium"
-              >
-                Meetup
-              </a>
+              <Link to="/speakers" className="text-white/50 hover:text-yellow-400 transition-colors font-medium">
+                Speakers
+              </Link>
             </div>
           </div>
         </div>
