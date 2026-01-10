@@ -6,6 +6,16 @@ import Particles from "@/components/Particles";
 import Footer from "@/components/Footer";
 import MeetupLogo from "@/components/MeetupLogo";
 
+// Company logos using Simple Icons CDN (SVG, white color for dark bg)
+const companies = [
+  { name: "Dropbox", icon: "dropbox" },
+  { name: "Cisco", icon: "cisco" },
+  { name: "Veriff", icon: "veriff" },
+  { name: "Twilio", icon: "twilio" },
+  { name: "Yandex", icon: "yandex" },
+  { name: "Craft Docs", icon: "craft" },
+];
+
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] overflow-hidden">
@@ -43,7 +53,7 @@ const HomePage = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button
                   asChild
-                  className="px-8 py-6 text-lg bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-full transition-colors"
+                  className="px-8 py-6 text-lg bg-yellow-400 hover:bg-yellow-300 text-black hover:text-black font-bold rounded-full transition-colors"
                 >
                   <a
                     href="https://www.meetup.com/tallinn-js/"
@@ -58,7 +68,7 @@ const HomePage = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="px-8 py-6 text-lg border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400/50 rounded-full transition-colors"
+                  className="px-8 py-6 text-lg border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400/50 hover:text-yellow-400 rounded-full transition-colors"
                 >
                   <Link to="/events">
                     VIEW EVENTS
@@ -89,6 +99,41 @@ const HomePage = () => {
                   <span className="text-white/50 ml-1">active members</span>
                 </div>
               </div>
+
+              {/* Speakers from companies - scrolling logos */}
+              <div className="mt-10">
+                <p className="text-white/30 text-xs uppercase tracking-wider mb-4">
+                  Speakers from
+                </p>
+                <div className="relative overflow-hidden">
+                  {/* Fade edges */}
+                  <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10" />
+                  <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10" />
+
+                  {/* Scrolling container */}
+                  <div className="flex animate-scroll">
+                    {[...companies, ...companies].map((company, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center justify-center mx-6 flex-shrink-0"
+                      >
+                        <img
+                          src={`https://cdn.simpleicons.org/${company.icon}/ffffff`}
+                          alt={company.name}
+                          className="h-6 w-auto opacity-50 hover:opacity-100 transition-opacity"
+                          onError={(e) => {
+                            // Fallback to text if icon fails
+                            const parent = (e.target as HTMLImageElement).parentElement;
+                            if (parent) {
+                              parent.innerHTML = `<span class="text-white/50 font-medium text-sm">${company.name}</span>`;
+                            }
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
 
             {/* Right side - Image */}
@@ -105,38 +150,6 @@ const HomePage = () => {
                 />
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Speakers From Section */}
-      <section className="py-16 border-b border-white/10">
-        <div className="container mx-auto px-6">
-          <p className="text-white/40 text-sm uppercase tracking-wider text-center mb-8">
-            Speakers from leading companies
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-            {[
-              { name: "Dropbox", logo: "https://img.logo.dev/dropbox.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
-              { name: "Cisco", logo: "https://img.logo.dev/cisco.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
-              { name: "Veriff", logo: "https://img.logo.dev/veriff.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
-              { name: "Malwarebytes", logo: "https://img.logo.dev/malwarebytes.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
-              { name: "Twilio", logo: "https://img.logo.dev/twilio.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
-              { name: "Yandex", logo: "https://img.logo.dev/yandex.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
-            ].map((company, index) => (
-              <div key={index} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
-                <img
-                  src={company.logo}
-                  alt={company.name}
-                  className="h-8 w-auto grayscale hover:grayscale-0 transition-all"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                    (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
-                  }}
-                />
-                <span className="hidden text-white/60 font-medium">{company.name}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -188,7 +201,7 @@ const HomePage = () => {
 
             <Button
               asChild
-              className="px-12 py-8 text-xl bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-full shadow-lg shadow-yellow-400/25 transition-colors"
+              className="px-12 py-8 text-xl bg-yellow-400 hover:bg-yellow-300 text-black hover:text-black font-bold rounded-full shadow-lg shadow-yellow-400/25 transition-colors"
             >
               <a
                 href="https://www.meetup.com/tallinn-js/"

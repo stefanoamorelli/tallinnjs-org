@@ -245,7 +245,7 @@ const SpeakersPage = () => {
 
             <Button
               asChild
-              className="px-10 py-6 text-lg bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-full transition-colors"
+              className="px-10 py-6 text-lg bg-yellow-400 hover:bg-yellow-300 text-black hover:text-black font-bold rounded-full transition-colors"
             >
               <a
                 href="https://www.meetup.com/tallinn-js/"
