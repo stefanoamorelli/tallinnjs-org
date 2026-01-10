@@ -105,22 +105,22 @@ const HomePage = () => {
                 <p className="text-white/30 text-xs uppercase tracking-wider mb-4">
                   Speakers from
                 </p>
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden" style={{ maxWidth: '400px' }}>
                   {/* Fade edges */}
-                  <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10" />
-                  <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10" />
+                  <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-[#0a0a0a] to-transparent z-10" />
+                  <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-[#0a0a0a] to-transparent z-10" />
 
                   {/* Scrolling container */}
-                  <div className="flex animate-scroll">
-                    {[...companies, ...companies].map((company, index) => (
+                  <div className="flex animate-scroll" style={{ width: 'max-content' }}>
+                    {[...companies, ...companies, ...companies].map((company, index) => (
                       <div
                         key={index}
-                        className="flex items-center justify-center mx-6 flex-shrink-0"
+                        className="flex items-center justify-center px-6 flex-shrink-0"
                       >
                         <img
                           src={`https://cdn.simpleicons.org/${company.icon}/ffffff`}
                           alt={company.name}
-                          className="h-6 w-auto opacity-50 hover:opacity-100 transition-opacity"
+                          className="h-8 w-auto opacity-60 hover:opacity-100 transition-opacity"
                           onError={(e) => {
                             // Fallback to text if icon fails
                             const parent = (e.target as HTMLImageElement).parentElement;
