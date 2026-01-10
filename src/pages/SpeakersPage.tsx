@@ -1,6 +1,107 @@
-import { ExternalLinkIcon, Mic } from "lucide-react";
+import { ExternalLinkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+
+// Speaker data from TallinnJS archive
+const speakers = [
+  // TallinnJS #10 - July 2024
+  {
+    name: "Kacper Pietrzak",
+    company: "Dropbox",
+    role: "Software Engineer",
+    talk: "Better debugging in JS",
+    event: "TallinnJS #10",
+    date: "July 2024",
+    image: "https://archive.tallinnjs.org/images/kacper.jpeg",
+  },
+  {
+    name: "Bartek Legięć",
+    company: "Craft Docs",
+    role: "Senior Web Product Engineer",
+    talk: "WTF.JS - Javascript Quirks",
+    event: "TallinnJS #10",
+    date: "July 2024",
+    image: "https://archive.tallinnjs.org/images/bartek.jpeg",
+  },
+  {
+    name: "Daniel Yuschick",
+    company: "Noice",
+    role: "Senior Frontend Developer",
+    talk: "Get Lost JavaScript, Just Kidding",
+    event: "TallinnJS #10",
+    date: "July 2024",
+    image: "https://archive.tallinnjs.org/images/daniel.jpeg",
+  },
+  // TallinnJS #9 - April 2023
+  {
+    name: "Illia Osmanov",
+    company: "Cisco",
+    role: "Software Engineer",
+    talk: "Typescript is cute 🙃",
+    event: "TallinnJS #9",
+    date: "April 2023",
+    image: "https://archive.tallinnjs.org/tjs9/images/illia.jpg",
+  },
+  {
+    name: "Stefan Djokovic",
+    company: "Red Sift",
+    role: "Software Engineer",
+    talk: "Full Stack Type Safety",
+    event: "TallinnJS #9",
+    date: "April 2023",
+    image: "https://archive.tallinnjs.org/tjs9/images/stefan.jpg",
+  },
+  {
+    name: "Kateryna Porshnieva",
+    company: "Veriff",
+    role: "Head of Developer Relations",
+    talk: "Building accessible forms",
+    event: "TallinnJS #9",
+    date: "April 2023",
+    image: "https://archive.tallinnjs.org/tjs9/images/katya.jpg",
+  },
+  // TallinnJS #8 - December 2022
+  {
+    name: "Ilia Chernetskii",
+    company: "Evolution",
+    role: "Javascript Engineer",
+    talk: "How Svelte works for Reactaholics",
+    event: "TallinnJS #8",
+    date: "December 2022",
+    image: "https://archive.tallinnjs.org/tjs8/images/ichernetskii.jpg",
+  },
+  // TallinnJS #7 - September 2022
+  {
+    name: "Bogdan Bashev",
+    company: "Veriff",
+    role: "Staff Quality Engineer",
+    talk: "Your ESLint - your (custom) rules",
+    event: "TallinnJS #7",
+    date: "September 2022",
+    image: "https://archive.tallinnjs.org/tjs7/images/bogdan_bashev.jpeg",
+  },
+  {
+    name: "Anton Vorozheev",
+    company: "Malwarebytes",
+    role: "Software Engineer",
+    talk: "Migrating Legacy Systems With MicroFrontends",
+    event: "TallinnJS #7",
+    date: "September 2022",
+    image: "https://archive.tallinnjs.org/tjs7/images/anton_vorozheev.jpg",
+  },
+];
+
+// Company logos (using placeholder for companies without public logos)
+const companyLogos: Record<string, string> = {
+  "Dropbox": "https://logo.clearbit.com/dropbox.com",
+  "Craft Docs": "https://logo.clearbit.com/craft.do",
+  "Noice": "https://logo.clearbit.com/noice.com",
+  "Cisco": "https://logo.clearbit.com/cisco.com",
+  "Red Sift": "https://logo.clearbit.com/redsift.com",
+  "Veriff": "https://logo.clearbit.com/veriff.com",
+  "Evolution": "https://logo.clearbit.com/evolution.com",
+  "Malwarebytes": "https://logo.clearbit.com/malwarebytes.com",
+};
 
 const SpeakersPage = () => {
   return (
@@ -27,34 +128,79 @@ const SpeakersPage = () => {
         </div>
       </section>
 
-      {/* Speakers Info */}
+      {/* Speakers Grid */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="p-12 rounded-3xl bg-white/5 border border-white/10">
-              <Mic className="size-16 text-yellow-400/50 mx-auto mb-6" />
-              <h2 className="font-display text-2xl md:text-3xl font-black mb-4">
-                SPEAKER ARCHIVE COMING SOON
-              </h2>
-              <p className="text-white/50 mb-8">
-                We're working on building a comprehensive archive of all the amazing speakers
-                who have presented at TallinnJS events since 2017. In the meantime, check out
-                our archive for past talk recordings.
-              </p>
-              <Button
-                asChild
-                className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-full px-8 py-6 text-lg transition-colors"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {speakers.map((speaker, index) => (
+              <div
+                key={index}
+                className="group p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-yellow-400/30 transition-colors duration-300"
               >
-                <a
-                  href="https://archive.tallinnjs.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  BROWSE ARCHIVE
-                  <ExternalLinkIcon className="ml-2 size-5" />
-                </a>
-              </Button>
-            </div>
+                <div className="flex items-start gap-4">
+                  {/* Speaker Photo */}
+                  <div className="relative flex-shrink-0">
+                    <img
+                      src={speaker.image}
+                      alt={speaker.name}
+                      className="w-20 h-20 rounded-full object-cover ring-2 ring-yellow-400/20 group-hover:ring-yellow-400/40 transition-all"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(speaker.name)}&background=ffe45e&color=000&size=80`;
+                      }}
+                    />
+                  </div>
+
+                  {/* Speaker Info */}
+                  <div className="flex-grow min-w-0">
+                    <h3 className="font-display text-lg font-black mb-1 truncate">{speaker.name}</h3>
+
+                    {/* Company with logo */}
+                    <div className="flex items-center gap-2 mb-2">
+                      {companyLogos[speaker.company] && (
+                        <img
+                          src={companyLogos[speaker.company]}
+                          alt={speaker.company}
+                          className="w-4 h-4 rounded"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = 'none';
+                          }}
+                        />
+                      )}
+                      <span className="text-yellow-400 text-sm font-medium">{speaker.company}</span>
+                    </div>
+
+                    <p className="text-white/40 text-xs mb-3">{speaker.role}</p>
+                  </div>
+                </div>
+
+                {/* Talk Info */}
+                <div className="mt-4 pt-4 border-t border-white/10">
+                  <p className="text-white/70 text-sm font-medium mb-2">"{speaker.talk}"</p>
+                  <div className="flex items-center justify-between text-xs text-white/40">
+                    <span>{speaker.event}</span>
+                    <span>{speaker.date}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Archive Link */}
+          <div className="text-center mt-12">
+            <Button
+              asChild
+              variant="outline"
+              className="border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400/50 rounded-full px-8 py-6 text-lg transition-colors"
+            >
+              <a
+                href="https://archive.tallinnjs.org"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                VIEW ALL IN ARCHIVE
+                <ExternalLinkIcon className="ml-2 size-5" />
+              </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -66,16 +212,16 @@ const SpeakersPage = () => {
         <div className="container mx-auto px-6 relative">
           <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto text-center">
             <div>
-              <div className="text-4xl md:text-6xl font-black text-black mb-1">100+</div>
+              <div className="text-4xl md:text-6xl font-black text-black mb-1">30+</div>
               <div className="text-black/60 font-medium tracking-wider text-sm">SPEAKERS</div>
             </div>
             <div>
-              <div className="text-4xl md:text-6xl font-black text-black mb-1">50+</div>
+              <div className="text-4xl md:text-6xl font-black text-black mb-1">10</div>
               <div className="text-black/60 font-medium tracking-wider text-sm">EVENTS</div>
             </div>
             <div>
-              <div className="text-4xl md:text-6xl font-black text-black mb-1">13+</div>
-              <div className="text-black/60 font-medium tracking-wider text-sm">RECORDED</div>
+              <div className="text-4xl md:text-6xl font-black text-black mb-1">2017</div>
+              <div className="text-black/60 font-medium tracking-wider text-sm">SINCE</div>
             </div>
           </div>
         </div>
