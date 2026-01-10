@@ -4,6 +4,7 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
 import Particles from "@/components/Particles";
 import Footer from "@/components/Footer";
+import MeetupLogo from "@/components/MeetupLogo";
 
 const HomePage = () => {
   return (
@@ -49,7 +50,8 @@ const HomePage = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    JOIN THE COMMUNITY
+                    <MeetupLogo className="mr-2 size-5" />
+                    JOIN US ON MEETUP
                     <ExternalLinkIcon className="ml-2 size-5" />
                   </a>
                 </Button>
@@ -161,7 +163,8 @@ const HomePage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                RSVP NOW
+                <MeetupLogo className="mr-3 size-6" />
+                JOIN US ON MEETUP
                 <ExternalLinkIcon className="ml-3 size-6" />
               </a>
             </Button>

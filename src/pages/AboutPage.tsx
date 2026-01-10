@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLinkIcon, Heart, Target, Users, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
+import MeetupLogo from "@/components/MeetupLogo";
 
 const AboutPage = () => {
   return (
@@ -148,14 +149,15 @@ const AboutPage = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  JOIN ON MEETUP
+                  <MeetupLogo className="mr-2 size-5" />
+                  JOIN US ON MEETUP
                   <ExternalLinkIcon className="ml-2 size-5" />
                 </a>
               </Button>
               <Button
                 asChild
                 variant="outline"
-                className="px-10 py-6 text-lg border-white/20 text-white hover:bg-white/5 hover:border-white/30 rounded-full transition-colors"
+                className="px-10 py-6 text-lg border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400/50 rounded-full transition-colors"
               >
                 <Link to="/events">
                   VIEW EVENTS

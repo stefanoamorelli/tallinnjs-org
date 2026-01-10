@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLinkIcon, Calendar, Bell, Mic } from "lucide-react";
 import Footer from "@/components/Footer";
+import MeetupLogo from "@/components/MeetupLogo";
 
 const EventsPage = () => {
   return (
@@ -43,15 +44,16 @@ const EventsPage = () => {
               </p>
               <Button
                 asChild
-                className="btn-primary rounded-full px-8 py-6 text-lg"
+                className="bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-full px-8 py-6 text-lg transition-colors"
               >
                 <a
                   href="https://www.meetup.com/tallinn-js/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Bell className="mr-2 size-5" />
-                  GET NOTIFIED
+                  <MeetupLogo className="mr-2 size-5" />
+                  JOIN US ON MEETUP
+                  <Bell className="ml-2 size-5" />
                 </a>
               </Button>
             </div>
@@ -135,14 +137,15 @@ const EventsPage = () => {
 
             <Button
               asChild
-              className="px-10 py-6 text-lg btn-primary rounded-full glow-yellow"
+              className="px-10 py-6 text-lg bg-yellow-400 hover:bg-yellow-300 text-black font-bold rounded-full transition-colors"
             >
               <a
                 href="https://www.meetup.com/tallinn-js/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GET IN TOUCH
+                <MeetupLogo className="mr-2 size-5" />
+                JOIN US ON MEETUP
                 <ExternalLinkIcon className="ml-2 size-5" />
               </a>
             </Button>

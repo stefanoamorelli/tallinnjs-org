@@ -1,8 +1,9 @@
 import { ExternalLinkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import MeetupLogo from "@/components/MeetupLogo";
 
-// Speaker data from TallinnJS archive (verified roles)
+// Speaker data from TallinnJS archive (verified roles, no duplicates)
 const speakers = [
   // TallinnJS #10 - July 2024
   {
@@ -53,23 +54,14 @@ const speakers = [
   },
   {
     name: "Kateryna Porshnieva",
-    company: "",
-    role: "Software Engineer",
+    company: "Veriff",
+    role: "Head of Developer Relations",
     talk: "Practical tips for building accessible forms",
     event: "TallinnJS #9",
     date: "April 2023",
     image: "https://archive.tallinnjs.org/tjs9/images/katya.jpg",
   },
   // TallinnJS #8 - December 2022
-  {
-    name: "Kateryna Porshnieva",
-    company: "Veriff",
-    role: "Head of Developer Relations",
-    talk: "Alice's Adventures in Memoryland",
-    event: "TallinnJS #8",
-    date: "December 2022",
-    image: "https://archive.tallinnjs.org/tjs8/images/katerya.jpg",
-  },
   {
     name: "Ilia Chernetskii",
     company: "Evolution",
@@ -100,16 +92,16 @@ const speakers = [
   },
 ];
 
-// Company logos
+// Company logos using img.logo.dev (more reliable than clearbit)
 const companyLogos: Record<string, string> = {
-  "Dropbox": "https://logo.clearbit.com/dropbox.com",
-  "Craft Docs": "https://logo.clearbit.com/craft.do",
-  "Noice": "https://logo.clearbit.com/noice.com",
-  "Cisco": "https://logo.clearbit.com/cisco.com",
-  "Red Sift": "https://logo.clearbit.com/redsift.com",
-  "Veriff": "https://logo.clearbit.com/veriff.com",
-  "Evolution": "https://logo.clearbit.com/evolution.com",
-  "Malwarebytes": "https://logo.clearbit.com/malwarebytes.com",
+  "Dropbox": "https://img.logo.dev/dropbox.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ",
+  "Craft Docs": "https://img.logo.dev/craft.do?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ",
+  "Noice": "https://img.logo.dev/noice.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ",
+  "Cisco": "https://img.logo.dev/cisco.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ",
+  "Red Sift": "https://img.logo.dev/redsift.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ",
+  "Veriff": "https://img.logo.dev/veriff.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ",
+  "Evolution": "https://img.logo.dev/evolution.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ",
+  "Malwarebytes": "https://img.logo.dev/malwarebytes.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ",
 };
 
 const SpeakersPage = () => {
@@ -260,7 +252,8 @@ const SpeakersPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                GET IN TOUCH
+                <MeetupLogo className="mr-2 size-5" />
+                JOIN US ON MEETUP
                 <ExternalLinkIcon className="ml-2 size-5" />
               </a>
             </Button>
