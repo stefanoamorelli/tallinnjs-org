@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ExternalLinkIcon, ArrowRight, Code2, Users, Zap, Mic } from "lucide-react";
+import { ExternalLinkIcon, ArrowRight } from "lucide-react";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
 import Particles from "@/components/Particles";
@@ -29,15 +29,13 @@ const HomePage = () => {
               </div>
 
               <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-[0.9]">
-                <span className="text-white block">THE</span>
                 <span className="gradient-text block">TALLINN</span>
                 <span className="text-white block">JAVASCRIPT</span>
                 <span className="gradient-text block">MEETUP</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-white/60 max-w-md mb-10">
-                Join 1,200+ developers for talks, workshops, and networking events.
-                Free and open to all skill levels.
+              <p className="text-lg md:text-xl text-white/60 max-w-lg mb-10">
+                Join a community of 1,200+ developers for talks, workshops, and networking events, open to all skill levels!
               </p>
 
               {/* CTA Buttons */}
@@ -58,7 +56,7 @@ const HomePage = () => {
                 <Button
                   asChild
                   variant="outline"
-                  className="px-8 py-6 text-lg border-white/20 text-white hover:bg-white/5 hover:border-white/30 rounded-full transition-colors"
+                  className="px-8 py-6 text-lg border-yellow-400/30 text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400/50 rounded-full transition-colors"
                 >
                   <Link to="/events">
                     VIEW EVENTS
@@ -103,83 +101,8 @@ const HomePage = () => {
                   alt="TallinnJS Community"
                   className="relative w-full h-[400px] lg:h-[500px] object-cover rounded-3xl"
                 />
-
-                {/* Floating badge */}
-                <div className="absolute -bottom-6 -left-6 bg-yellow-400 text-black px-6 py-4 rounded-2xl shadow-lg shadow-yellow-400/20">
-                  <div className="text-3xl font-black">50+</div>
-                  <div className="text-sm font-medium uppercase">Events Hosted</div>
-                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-yellow-400/5 to-transparent" />
-
-        <div className="container mx-auto px-6 relative">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-4xl md:text-6xl font-black mb-4">
-              <span className="text-white">WHAT WE</span>{" "}
-              <span className="gradient-text">DO</span>
-            </h2>
-            <p className="text-white/50 text-lg max-w-xl mx-auto">
-              Building the JavaScript ecosystem in Tallinn through community events
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {[
-              {
-                icon: Mic,
-                title: "TALKS",
-                description: "Learn from industry experts sharing real-world insights",
-                stat: "100+",
-                statLabel: "Speakers"
-              },
-              {
-                icon: Code2,
-                title: "WORKSHOPS",
-                description: "Hands-on sessions to level up your skills",
-                stat: "20+",
-                statLabel: "Workshops"
-              },
-              {
-                icon: Users,
-                title: "NETWORKING",
-                description: "Connect with fellow developers and grow your network",
-                stat: "1200+",
-                statLabel: "Members"
-              },
-              {
-                icon: Zap,
-                title: "HACKATHONS",
-                description: "Build cool projects and compete with other teams",
-                stat: "5+",
-                statLabel: "Events"
-              }
-            ].map((feature, index) => (
-              <div
-                key={index}
-                className="group relative p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-yellow-400/30 transition-colors duration-300 overflow-hidden"
-              >
-                <div className="relative">
-                  <div className="inline-flex p-4 rounded-2xl bg-yellow-400/10 mb-6 group-hover:bg-yellow-400/20 transition-colors duration-300">
-                    <feature.icon className="size-8 text-yellow-400" />
-                  </div>
-
-                  <h3 className="font-display text-xl font-black mb-3 tracking-wide">{feature.title}</h3>
-                  <p className="text-white/50 text-sm mb-6">{feature.description}</p>
-
-                  <div className="pt-4 border-t border-white/10">
-                    <span className="text-2xl font-black text-yellow-400">{feature.stat}</span>
-                    <span className="text-white/40 text-sm ml-2">{feature.statLabel}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

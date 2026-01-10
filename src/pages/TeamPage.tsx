@@ -51,9 +51,9 @@ const TeamMemberCard = ({ member, slug }: { member: typeof teamMembers["stefano-
 
 // Team member detail view
 const TeamMemberDetail = ({ member }: { member: typeof teamMembers["stefano-amorelli"] }) => (
-  <div className="min-h-screen bg-[#0a0a0a] overflow-hidden">
+  <div className="min-h-screen bg-[#0a0a0a] overflow-hidden flex flex-col">
     {/* Hero */}
-    <section className="relative pt-32 pb-20 overflow-hidden">
+    <section className="relative pt-32 pb-20 overflow-hidden flex-grow">
       <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-yellow-500/20 rounded-full blur-[150px]" />
 
       <div className="container mx-auto px-6 relative">
