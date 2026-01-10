@@ -8,7 +8,7 @@ const teamMembers = {
   "stefano-amorelli": {
     name: "Stefano Amorelli",
     role: "Lead Organizer",
-    image: "https://secure.meetupstatic.com/photos/member/c/f/a/5/highres_314333157.jpeg",
+    image: "https://github.com/stefanoamorelli.png",
     bio: "Software engineer passionate about JavaScript and building developer communities. Leading TallinnJS to connect and grow the JavaScript ecosystem in Estonia.",
     location: "Tallinn, Estonia",
     links: {

@@ -29,8 +29,8 @@ const Particles = () => {
 
     const createParticles = () => {
       particles = [];
-      // More particles
-      const particleCount = Math.floor((canvas.width * canvas.height) / 8000);
+      // Fewer particles for subtler effect
+      const particleCount = Math.floor((canvas.width * canvas.height) / 25000);
 
       for (let i = 0; i < particleCount; i++) {
         particles.push({
