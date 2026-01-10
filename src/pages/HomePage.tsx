@@ -109,6 +109,38 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Speakers From Section */}
+      <section className="py-16 border-b border-white/10">
+        <div className="container mx-auto px-6">
+          <p className="text-white/40 text-sm uppercase tracking-wider text-center mb-8">
+            Speakers from leading companies
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+            {[
+              { name: "Dropbox", logo: "https://img.logo.dev/dropbox.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
+              { name: "Cisco", logo: "https://img.logo.dev/cisco.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
+              { name: "Veriff", logo: "https://img.logo.dev/veriff.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
+              { name: "Malwarebytes", logo: "https://img.logo.dev/malwarebytes.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
+              { name: "Twilio", logo: "https://img.logo.dev/twilio.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
+              { name: "Yandex", logo: "https://img.logo.dev/yandex.com?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ" },
+            ].map((company, index) => (
+              <div key={index} className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  className="h-8 w-auto grayscale hover:grayscale-0 transition-all"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                    (e.target as HTMLImageElement).nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                <span className="hidden text-white/60 font-medium">{company.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Big Stats Section */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-yellow-400" />
