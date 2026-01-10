@@ -2,6 +2,7 @@ import { ExternalLinkIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
 import MeetupLogo from "@/components/MeetupLogo";
+import SEO from "@/components/SEO";
 
 // Speaker data from TallinnJS archive (verified roles, no duplicates)
 const speakers = [
@@ -107,6 +108,11 @@ const companyLogos: Record<string, string> = {
 const SpeakersPage = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] overflow-hidden">
+      <SEO
+        title="Speakers"
+        canonical="/speakers"
+        description="Discover the amazing developers who have spoken at TallinnJS. Engineers from Dropbox, Cisco, Veriff, and more sharing JavaScript knowledge in Tallinn, Estonia."
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-yellow-500/20 rounded-full blur-[150px]" />

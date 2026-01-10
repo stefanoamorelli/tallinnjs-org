@@ -1,0 +1,11 @@
+# TallinnJS - robots.txt
+# https://tallinnjs.org
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://tallinnjs.org/sitemap.xml
+
+# Crawl delay (optional, be nice to crawlers)
+Crawl-delay: 1

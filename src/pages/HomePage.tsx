@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Particles from "@/components/Particles";
 import Footer from "@/components/Footer";
 import MeetupLogo from "@/components/MeetupLogo";
+import SEO from "@/components/SEO";
 
 // Company logos using Simple Icons CDN (SVG, white color for dark bg)
 const companies = [
@@ -19,6 +20,10 @@ const companies = [
 const HomePage = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] overflow-hidden">
+      <SEO
+        canonical="/"
+        description="TallinnJS is Estonia's largest JavaScript community with 1,200+ developers. Join us for free talks, workshops, and networking events in Tallinn. All skill levels welcome."
+      />
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center">
         {/* Animated particles */}

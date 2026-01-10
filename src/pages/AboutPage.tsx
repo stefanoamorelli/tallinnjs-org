@@ -3,10 +3,16 @@ import { ExternalLinkIcon, Heart, Target, Users, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 import Footer from "@/components/Footer";
 import MeetupLogo from "@/components/MeetupLogo";
+import SEO from "@/components/SEO";
 
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] overflow-hidden">
+      <SEO
+        title="About"
+        canonical="/about"
+        description="Learn about TallinnJS, Estonia's largest JavaScript community. Founded in 2017, we bring together 1,200+ developers for free meetups, talks, and workshops in Tallinn."
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-yellow-500/20 rounded-full blur-[150px]" />

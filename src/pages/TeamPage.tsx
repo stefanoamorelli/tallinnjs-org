@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { Linkedin, Github, Twitter, Globe, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 // Team member data
 const teamMembers = {
@@ -159,6 +160,11 @@ const TeamPage = () => {
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] overflow-hidden">
+      <SEO
+        title="Team"
+        canonical="/team"
+        description="Meet the organizers behind TallinnJS. The passionate people who make Estonia's largest JavaScript community happen. Join us for free meetups in Tallinn."
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-yellow-500/20 rounded-full blur-[150px]" />

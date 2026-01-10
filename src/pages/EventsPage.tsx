@@ -2,10 +2,17 @@ import { Button } from "@/components/ui/button";
 import { ExternalLinkIcon, Calendar, Bell, Mic } from "lucide-react";
 import Footer from "@/components/Footer";
 import MeetupLogo from "@/components/MeetupLogo";
+import SEO from "@/components/SEO";
 
 const EventsPage = () => {
   return (
     <div className="min-h-screen bg-[#0a0a0a] overflow-hidden">
+      <SEO
+        title="Events"
+        canonical="/events"
+        description="Browse upcoming and past TallinnJS events. Join us for free JavaScript talks, workshops, and networking meetups in Tallinn, Estonia. 50+ events hosted since 2017."
+        type="event"
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-yellow-500/20 rounded-full blur-[150px]" />
