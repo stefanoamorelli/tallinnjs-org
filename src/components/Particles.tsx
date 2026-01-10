@@ -3,6 +3,8 @@ import { useEffect, useRef } from "react";
 interface Particle {
   x: number;
   y: number;
+  originX: number;
+  originY: number;
   size: number;
   speedX: number;
   speedY: number;
@@ -11,6 +13,7 @@ interface Particle {
 
 const Particles = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const mouseRef = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -30,16 +33,19 @@ const Particles = () => {
     const createParticles = () => {
       particles = [];
       // Fewer particles for subtler effect
-      const particleCount = Math.floor((canvas.width * canvas.height) / 25000);
+      const particleCount = Math.floor((canvas.width * canvas.height) / 30000);
 
       for (let i = 0; i < particleCount; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
         particles.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          // Larger, more blurred particles
+          x,
+          y,
+          originX: x,
+          originY: y,
           size: Math.random() * 3 + 1,
-          speedX: (Math.random() - 0.5) * 0.2,
-          speedY: (Math.random() - 0.5) * 0.2,
+          speedX: (Math.random() - 0.5) * 0.3,
+          speedY: (Math.random() - 0.5) * 0.3,
           opacity: Math.random() * 0.3 + 0.05,
         });
       }
@@ -48,9 +54,26 @@ const Particles = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      const mouse = mouseRef.current;
+      const mouseRadius = 150;
+
       particles.forEach((particle) => {
-        particle.x += particle.speedX;
-        particle.y += particle.speedY;
+        // Calculate distance from mouse
+        const dx = mouse.x - particle.x;
+        const dy = mouse.y - particle.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        // Repel particles from mouse
+        if (distance < mouseRadius && distance > 0) {
+          const force = (mouseRadius - distance) / mouseRadius;
+          const angle = Math.atan2(dy, dx);
+          particle.x -= Math.cos(angle) * force * 3;
+          particle.y -= Math.sin(angle) * force * 3;
+        } else {
+          // Slowly drift back toward original movement
+          particle.x += particle.speedX;
+          particle.y += particle.speedY;
+        }
 
         // Wrap around edges
         if (particle.x < 0) particle.x = canvas.width;
@@ -92,6 +115,18 @@ const Particles = () => {
       animationFrameId = requestAnimationFrame(animate);
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
+    };
+
+    const handleMouseLeave = () => {
+      mouseRef.current = { x: -1000, y: -1000 };
+    };
+
     resize();
     createParticles();
     animate();
@@ -100,18 +135,22 @@ const Particles = () => {
       resize();
       createParticles();
     });
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
       cancelAnimationFrame(animationFrameId);
       window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none"
-      style={{ opacity: 0.8 }}
+      className="absolute inset-0"
+      style={{ opacity: 0.8, pointerEvents: "none" }}
     />
   );
 };
