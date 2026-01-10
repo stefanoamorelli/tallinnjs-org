@@ -13,6 +13,34 @@ body {
   color: #ffe45e;
 }
 
+.section-title {
+  color: #ffe45e;
+}
+
+.text-accent-yellow {
+  color: #ffe45e;
+}
+
+.bg-accent-yellow {
+  background-color: #ffe45e;
+}
+
+.border-accent-yellow\/20 {
+  border-color: rgba(255, 228, 94, 0.2);
+}
+
+.border-accent-yellow\/50 {
+  border-color: rgba(255, 228, 94, 0.5);
+}
+
+.bg-accent-yellow\/10 {
+  background-color: rgba(255, 228, 94, 0.1);
+}
+
+.bg-accent-yellow\/20 {
+  background-color: rgba(255, 228, 94, 0.2);
+}
+
 a:hover {
   color: #ffe45e;
 }
@@ -23,4 +51,36 @@ a:hover {
   width: 100%;
   color: hsl(var(--primary));
   border: 1px solid;
+}
+
+.primary-cta:hover {
+  background: #ffd700 !important;
+  color: hsl(var(--primary)) !important;
+}
+
+/* Section backgrounds */
+.bg-secondary\/5 {
+  background-color: rgba(240, 240, 245, 0.05);
+}
+
+.bg-secondary\/10 {
+  background-color: rgba(240, 240, 245, 0.1);
+}
+
+.border-secondary\/20 {
+  border-color: rgba(240, 240, 245, 0.2);
+}
+
+/* Smooth transitions */
+section {
+  transition: opacity 0.3s ease;
+}
+
+/* Footer link styling */
+footer a {
+  text-decoration: none;
+}
+
+footer a:hover {
+  background: transparent !important;
 }

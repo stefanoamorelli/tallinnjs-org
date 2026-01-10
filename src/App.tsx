@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { ExternalLinkIcon } from "lucide-react";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Stats, Events, Speakers, Sponsors, Venue } from "@/components/sections";
 
 import "./App.css";
 
-import { ExternalLinkIcon } from "lucide-react";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
-
-const Hero8 = () => {
+const Hero = () => {
   return (
     <section className="lg:py-32 pt-12 mx-auto container px-8">
       <div className="overflow-hidden">
@@ -43,7 +43,7 @@ const Hero8 = () => {
                   </Avatar>
                 ))}
                 <div className="lg:pl-6 pl-4 text-sm lg:text-md text-slate-500">
-                  +1k members
+                  +1,200 members
                 </div>
               </span>
               <div className="mt-8 lg:mb-12 w-full items-center container px-8 mx-auto flex flex-col justify-center gap-2 sm:flex-col">
@@ -65,28 +65,62 @@ const Hero8 = () => {
             alt="TallinnJS Community"
             className="mx-auto mt-12 max-h-[700px] w-full max-w-5xl rounded-xl object-cover shadow-xl"
           />
-          <Button asChild className="my-24" variant="secondary">
-            <a
-              className="border"
-              href="https://archive.tallinnjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Archive
-            </a>
-          </Button>
         </div>
       </div>
     </section>
   );
 };
 
+const Footer = () => {
+  return (
+    <footer className="py-12 border-t border-secondary/20">
+      <div className="container mx-auto px-8 text-center">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-6 mb-8">
+          <a
+            href="https://www.meetup.com/tallinn-js/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-accent-yellow transition-colors"
+          >
+            Meetup
+          </a>
+          <a
+            href="https://archive.tallinnjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-400 hover:text-accent-yellow transition-colors"
+          >
+            Archive
+          </a>
+          <a
+            href="mailto:stefano@tallinnjs.org"
+            className="text-slate-400 hover:text-accent-yellow transition-colors"
+          >
+            Contact
+          </a>
+        </div>
+        <p className="text-slate-500 text-sm">
+          TallinnJS - JavaScript community in Tallinn, Estonia
+        </p>
+        <p className="text-slate-600 text-xs mt-2">
+          Founded September 2017 | Organized by Stefano Amorelli
+        </p>
+      </div>
+    </footer>
+  );
+};
+
 function App() {
   return (
-    <>
-      {" "}
-      <Hero8 />
-    </>
+    <div className="min-h-screen">
+      <Hero />
+      <Stats />
+      <Events />
+      <Speakers />
+      <Sponsors />
+      <Venue />
+      <Footer />
+    </div>
   );
 }
 
