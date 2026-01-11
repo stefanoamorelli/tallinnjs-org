@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ExternalLinkIcon } from "lucide-react";
 import { useState } from "react";
 import MeetupLogo from "./MeetupLogo";
 
@@ -52,10 +52,11 @@ const Navbar = () => {
               href="https://www.meetup.com/tallinn-js/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 bg-yellow-400 text-black hover:text-black font-semibold rounded-lg hover:bg-yellow-300 transition-colors"
+              className="flex items-center gap-2 px-5 py-2 bg-yellow-400 text-black hover:text-black font-semibold rounded-full hover:bg-yellow-300 transition-colors"
             >
               <MeetupLogo className="size-4" />
               Join Meetup
+              <ExternalLinkIcon className="size-4" />
             </a>
           </div>
 
@@ -89,10 +90,11 @@ const Navbar = () => {
               href="https://www.meetup.com/tallinn-js/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 px-4 py-2 bg-yellow-400 text-black hover:text-black font-semibold rounded-lg hover:bg-yellow-300 transition-colors"
+              className="flex items-center justify-center gap-2 px-5 py-3 bg-yellow-400 text-black hover:text-black font-semibold rounded-full hover:bg-yellow-300 transition-colors"
             >
               <MeetupLogo className="size-4" />
               Join Meetup
+              <ExternalLinkIcon className="size-4" />
             </a>
           </div>
         )}
