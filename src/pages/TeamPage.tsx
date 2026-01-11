@@ -10,7 +10,7 @@ const teamMembers = {
     name: "Stefano Amorelli",
     role: "Community Lead",
     image: "https://github.com/stefanoamorelli.png",
-    bio: "Software engineer and e-Residency Community Leader based in Tallinn. Passionate about JavaScript and building developer communities in Estonia.",
+    bio: "Software engineer, builder, from Sicily, now based in Tallinn, Estonia. Passionate about JavaScript and giving back to the community, whether it's through community or open source.",
     location: "Tallinn, Estonia",
     links: {
       linkedin: "https://linkedin.com/in/stefanoamorelli",

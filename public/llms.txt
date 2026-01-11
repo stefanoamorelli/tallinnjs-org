@@ -38,7 +38,7 @@ TallinnJS organizes regular meetups featuring:
 ### Stefano Amorelli
 - Role: Community Lead
 - Location: Tallinn, Estonia
-- Bio: Software engineer and e-Residency Community Leader. Passionate about JavaScript and building developer communities.
+- Bio: Software engineer, builder, from Sicily, now based in Tallinn, Estonia. Passionate about JavaScript and giving back to the community, whether it's through community or open source.
 - Links: linkedin.com/in/stefanoamorelli, github.com/stefanoamorelli, amorelli.tech
 
 ## Past Speakers (Selection)
