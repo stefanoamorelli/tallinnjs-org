@@ -7,14 +7,14 @@ import Footer from "@/components/Footer";
 import MeetupLogo from "@/components/MeetupLogo";
 import SEO from "@/components/SEO";
 
-// Company logos using logo.dev API
+// Companies where our speakers work
 const companies = [
-  { name: "Dropbox", domain: "dropbox.com" },
-  { name: "Cisco", domain: "cisco.com" },
-  { name: "Veriff", domain: "veriff.com" },
-  { name: "Twilio", domain: "twilio.com" },
-  { name: "Craft Docs", domain: "craft.do" },
-  { name: "Malwarebytes", domain: "malwarebytes.com" },
+  "Dropbox",
+  "Cisco",
+  "Veriff",
+  "Twilio",
+  "Craft",
+  "Malwarebytes",
 ];
 
 const HomePage = () => {
@@ -163,16 +163,17 @@ const HomePage = () => {
                           flexShrink: 0
                         }}
                       >
-                        <img
-                          src={`https://img.logo.dev/${company.domain}?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ`}
-                          alt={company.name}
+                        <span
                           style={{
-                            height: '24px',
-                            width: 'auto',
-                            filter: 'brightness(0) invert(1)',
-                            opacity: 0.7
+                            color: 'rgba(255, 255, 255, 0.5)',
+                            fontSize: '14px',
+                            fontWeight: 600,
+                            letterSpacing: '0.05em',
+                            whiteSpace: 'nowrap'
                           }}
-                        />
+                        >
+                          {company}
+                        </span>
                       </div>
                     ))}
                   </div>
