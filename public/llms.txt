@@ -36,9 +36,9 @@ TallinnJS organizes regular meetups featuring:
 ## Current Organizers
 
 ### Stefano Amorelli
-- Role: Lead Organizer
+- Role: Community Lead
 - Location: Tallinn, Estonia
-- Links: linkedin.com/in/stefanoamorelli, github.com/stefanoamorelli
+- Links: linkedin.com/in/stefanoamorelli, github.com/stefanoamorelli, amorelli.tech
 
 ## Past Speakers (Selection)
 

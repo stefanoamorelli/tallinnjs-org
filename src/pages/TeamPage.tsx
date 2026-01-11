@@ -8,15 +8,15 @@ import SEO from "@/components/SEO";
 const teamMembers = {
   "stefano-amorelli": {
     name: "Stefano Amorelli",
-    role: "Lead Organizer",
+    role: "Community Lead",
     image: "https://github.com/stefanoamorelli.png",
-    bio: "Software engineer passionate about JavaScript and building developer communities. Leading TallinnJS to connect and grow the JavaScript ecosystem in Estonia.",
+    bio: "Software engineer and e-Residency Community Leader based in Tallinn. Passionate about JavaScript and building developer communities in Estonia.",
     location: "Tallinn, Estonia",
     links: {
       linkedin: "https://linkedin.com/in/stefanoamorelli",
       github: "https://github.com/stefanoamorelli",
       twitter: "https://twitter.com/stefanoamorelli",
-      website: "https://stefanoamorelli.com"
+      website: "https://amorelli.tech"
     }
   }
 };

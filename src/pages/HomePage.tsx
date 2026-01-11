@@ -7,14 +7,14 @@ import Footer from "@/components/Footer";
 import MeetupLogo from "@/components/MeetupLogo";
 import SEO from "@/components/SEO";
 
-// Company logos using Simple Icons CDN (SVG, white color for dark bg)
+// Company logos using logo.dev API
 const companies = [
-  { name: "Dropbox", icon: "dropbox" },
-  { name: "Cisco", icon: "cisco" },
-  { name: "Veriff", icon: "veriff" },
-  { name: "Twilio", icon: "twilio" },
-  { name: "Yandex", icon: "yandex" },
-  { name: "Craft Docs", icon: "craft" },
+  { name: "Dropbox", domain: "dropbox.com" },
+  { name: "Cisco", domain: "cisco.com" },
+  { name: "Veriff", domain: "veriff.com" },
+  { name: "Twilio", domain: "twilio.com" },
+  { name: "Craft Docs", domain: "craft.do" },
+  { name: "Malwarebytes", domain: "malwarebytes.com" },
 ];
 
 const HomePage = () => {
@@ -164,14 +164,13 @@ const HomePage = () => {
                         }}
                       >
                         <img
-                          src={`https://cdn.simpleicons.org/${company.icon}/ffffff`}
+                          src={`https://img.logo.dev/${company.domain}?token=pk_X-1ZO13GSgeOoUrIuJ6GMQ`}
                           alt={company.name}
-                          style={{ height: '24px', width: 'auto', opacity: 0.6 }}
-                          onError={(e) => {
-                            const parent = (e.target as HTMLImageElement).parentElement;
-                            if (parent) {
-                              parent.innerHTML = `<span style="color: rgba(255,255,255,0.5); font-size: 14px; white-space: nowrap;">${company.name}</span>`;
-                            }
+                          style={{
+                            height: '24px',
+                            width: 'auto',
+                            filter: 'brightness(0) invert(1)',
+                            opacity: 0.7
                           }}
                         />
                       </div>
