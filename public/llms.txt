@@ -1,0 +1,87 @@
+# TallinnJS
+
+> Estonia's largest JavaScript developer community
+
+TallinnJS is a community of 1,200+ JavaScript developers in Tallinn, Estonia. Founded in 2017, we organize free meetups, talks, and workshops for developers of all skill levels.
+
+## Quick Facts
+
+- Location: Tallinn, Estonia
+- Founded: 2017
+- Members: 1,200+
+- Events hosted: 50+
+- Speakers featured: 100+
+
+## What We Do
+
+TallinnJS organizes regular meetups featuring:
+- Technical talks from industry professionals
+- Workshops on modern JavaScript technologies
+- Networking opportunities for developers
+- Knowledge sharing across all experience levels
+
+## Topics We Cover
+
+- React and Vue.js frameworks
+- Node.js and server-side JavaScript
+- TypeScript
+- Next.js and modern frameworks
+- Testing and quality assurance
+- Performance optimization
+- DevOps and deployment
+- GraphQL and REST APIs
+- Accessibility
+- AI/ML in JavaScript
+
+## Current Organizers
+
+### Stefano Amorelli
+- Role: Community Lead
+- Location: Tallinn, Estonia
+- Bio: Software engineer, builder, from Sicily, now based in Tallinn, Estonia. Passionate about JavaScript and giving back to the community, whether it's through community or open source.
+- Links: linkedin.com/in/stefanoamorelli, github.com/stefanoamorelli, amorelli.tech
+
+## Past Speakers (Selection)
+
+### TallinnJS #10 (July 2024)
+- Kacper Pietrzak (Dropbox) - "Better debugging in JS"
+- Bartek Legięć (Craft Docs) - "WTF.JS - Javascript Quirks"
+- Daniel Yuschick (Noice) - "Get Lost JavaScript, Just Kidding"
+
+### TallinnJS #9 (April 2023)
+- Illia Osmanov (Cisco) - "Typescript is cute"
+- Stefan Djokovic (Red Sift) - "Full Stack Type Safety"
+- Kateryna Porshnieva (Veriff) - "Practical tips for building accessible forms"
+
+### TallinnJS #8 (December 2022)
+- Ilia Chernetskii (Evolution) - "How Svelte works for Reactaholics"
+
+### TallinnJS #7 (September 2022)
+- Bogdan Bashev (Veriff) - "Your ESLint - your (custom) rules"
+- Anton Vorozheev (Malwarebytes) - "Migrating Legacy Systems With MicroFrontends"
+
+## Companies Represented by Speakers
+
+- Dropbox
+- Cisco
+- Veriff
+- Twilio
+- Craft Docs
+- Noice
+- Red Sift
+- Evolution
+- Malwarebytes
+
+## Contact & Links
+
+- Website: https://tallinnjs.org
+- Meetup: https://www.meetup.com/tallinn-js/
+- Archive: https://archive.tallinnjs.org
+
+## How to Join
+
+All TallinnJS events are free and open to everyone. Join us on Meetup to get notified about upcoming events.
+
+## How to Speak
+
+We welcome speakers of all experience levels. Topics related to JavaScript, TypeScript, and web development are welcome. Contact us through Meetup to propose a talk.
